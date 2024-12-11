@@ -3,7 +3,9 @@
 // @description Enables Picture-in-Picture mode on YouTube
 // @author  dinoosauro
 // @license mit
-// @match   *://*.youtube.com/watch*
+// @match   *://*.youtube.com/*
+// @version 1.0.0
+// @namespace   https://github.com/dinoosauro/yt-picture-in-picture-trigger
 // ==/UserScript==
 
 (() => {
@@ -64,10 +66,22 @@
      * Check that everything is working
      */
     const check = (() => {
+        if (window.location.pathname !== "/watch" || main.parentElement) return;
         if (document.querySelector(selector)) { // It's the div where the buttons are appended
             mainFn();
             if (!main.parentElement) setTimeout(() => check(), 1000); // main hasn't been added, we'll retry in a second
         } else setTimeout(() => check(), 1000); // Let's wait another second so that the page can load.
     })
     check();
+
+    // Check if the URL has changed (for example, the user has opened a video)
+    let url = window.location.href;
+    setInterval(() => {
+        if (url !== window.location.href) {
+            url = window.location.href;
+            check();
+        }
+    }, 1000);
+
+
 })()
