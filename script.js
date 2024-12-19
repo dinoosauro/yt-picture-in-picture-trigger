@@ -23,6 +23,7 @@
      * Create the Picture-in-Picture button
      */
     const mainFn = (() => {
+        if (main.parentElement) return;
         const btnView = document.createElement(isMobile ? "yt-button-shape" : "button-view-model");
         isMobile ? btnView.classList.add("yt-spec-button-shape-next__button-shape-wiz-class") : btnView.classList.add("yt-spec-button-view-model", "style-scope", "ytd-menu-renderer");
         const btn = document.createElement("button");
