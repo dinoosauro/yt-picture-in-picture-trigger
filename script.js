@@ -4,7 +4,7 @@
 // @author  dinoosauro
 // @license mit
 // @match   *://*.youtube.com/*
-// @version 1.0.1
+// @version 1.0.2
 // @namespace   https://github.com/dinoosauro/yt-picture-in-picture-trigger
 // ==/UserScript==
 
