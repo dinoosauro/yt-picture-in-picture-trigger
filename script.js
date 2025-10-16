@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name    YouTube Picture-in-Picture
+// @name        YouTube Picture-in-Picture
 // @description Add a button to enable Picture-in-Picture mode on YouTube
-// @author  dinoosauro
-// @license mit
-// @match   *://*.youtube.com/*
-// @version 1.0.2
+// @author      dinoosauro
+// @license     mit
+// @match       *://*.youtube.com/*
+// @version     1.0.3
 // @namespace   https://github.com/dinoosauro/yt-picture-in-picture-trigger
 // ==/UserScript==
 
@@ -73,7 +73,12 @@
             btnView.append(btn);
             main.append(btnView);
         }
-        if (!checkIfMainAppended()) document.querySelector(selector).append(main);
+        if (!checkIfMainAppended()) {
+            document.querySelector(selector).append(main);
+            setTimeout(() => {
+                window.dispatchEvent(new Event("resize")); // Fix display overflow issues in the button div by simulating a window resize.
+            }, 100);
+        }
     });
 
 
