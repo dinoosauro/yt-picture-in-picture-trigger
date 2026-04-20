@@ -30,9 +30,9 @@
         if (main.childElementCount === 0) {
             isMainCreated = true;
             const btnView = document.createElement(isMobile ? "yt-button-shape" : "button-view-model");
-            isMobile ? btnView.classList.add("yt-spec-button-shape-next__button-shape-wiz-class") : btnView.classList.add("yt-spec-button-view-model", "style-scope", "ytd-menu-renderer");
+            isMobile ? btnView.classList.add("yt-spec-button-shape-next__button-shape-wiz-class") : btnView.classList.add("ytSpecButtonViewModelHost", "style-scope", "ytd-menu-renderer");
             const btn = document.createElement("button");
-            btn.classList.add("yt-spec-button-shape-next", "yt-spec-button-shape-next--tonal", "yt-spec-button-shape-next--mono", "yt-spec-button-shape-next--size-m", "yt-spec-button-shape-next--icon-leading");
+            btn.classList.add("ytSpecButtonShapeNextHost", "ytSpecButtonShapeNextTonal", "ytSpecButtonShapeNextMono", "ytSpecButtonShapeNextSizeM", "ytSpecButtonShapeNextIconLeading", "ytSpecButtonShapeNextEnableBackdropFilterExperiment");
 
             // The Picture-in-Picture icon, provided from Microsoft's Fluent UI Icons (since Google's Material Design icons are too big)
             const iconContainer = document.createElement("div");
