@@ -4,7 +4,7 @@
 // @author      dinoosauro
 // @license     mit
 // @match       *://*.youtube.com/*
-// @version     1.0.3
+// @version     1.0.4
 // @namespace   https://github.com/dinoosauro/yt-picture-in-picture-trigger
 // ==/UserScript==
 
@@ -36,11 +36,11 @@
 
             // The Picture-in-Picture icon, provided from Microsoft's Fluent UI Icons (since Google's Material Design icons are too big)
             const iconContainer = document.createElement("div");
-            iconContainer.classList.add("yt-spec-button-shape-next__icon");
+            iconContainer.classList.add("ytSpecButtonShapeNextIcon");
             iconContainer.setAttribute("aria-hidden", "true");
             const c3Icon = Object.assign(document.createElement("c3-icon"), { style: "width: 24px; height: 24px;" });
             const shapeSpan = document.createElement("span");
-            shapeSpan.classList.add("yt-icon-shape", "yt-spec-icon-shape");
+            shapeSpan.classList.add("yt-icon-shape", "ytSpecIconShapeHost");
             const shapeDiv = Object.assign(document.createElement("div"), {
                 style: "width: 100%; height: 100%; display: block; fill: currentcolor;",
             });
@@ -59,17 +59,14 @@
 
             // Create the "Picture-in-Picture" text
             const text = Object.assign(document.createElement("div"), { textContent: "Picture-in-Picture" });
-            text.classList.add("yt-spec-button-shape-next__button-text-content");
+            text.classList.add("ytSpecButtonShapeNextButtonTextContent");
 
 
             // Touch annimation div
             const touch = Object.assign(document.createElement("yt-touch-feedback-shape"), { style: "border-radius: inherit;" });
-            const touchDiv = document.createElement("div");
-            touchDiv.classList.add("yt-spec-touch-feedback-shape", "yt-spec-touch-feedback-shape--touch-response");
+            touch.classList.add("ytSpecTouchFeedbackShapeHost", "ytSpecTouchFeedbackShapeTouchResponse");
 
-            // Append everything to the main div
-            touch.append(touchDiv);
-            btn.append(iconContainer, text, touchDiv);
+            btn.append(iconContainer, text, touch);
             btnView.append(btn);
             main.append(btnView);
         }
